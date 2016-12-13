@@ -1,0 +1,27 @@
+{
+  "name": "dasein",
+  "version": "0.0.0",
+  "description": "A social network",
+  "main": "lib/dasein.js",
+  "repository": {
+    "url": "git@github.com:rbdr/dasein.git",
+    "type": "git"
+  },
+  "author": "Ben Beltran <ben@nsovocal.com>",
+  "license": "MIT",
+  "bin": {
+    "dasein": "./bin/dasein.js"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "start": "node ./bin/dasein.js",
+    "test": "echo \"Error: no test specified... sorry D:\""
+  },
+  "devDependencies": {
+    "eslint": "^3.12.1",
+    "eslint-config-hapi": "^10.0.0",
+    "eslint-plugin-hapi": "^4.0.0"
+  },
+  "dependencies": {
+  }
+}

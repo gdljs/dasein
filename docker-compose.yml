@@ -1,0 +1,6 @@
+version: '2'
+
+services:
+  dasein:
+    build: .
+    image: rbdr/dasein
