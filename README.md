@@ -1,6 +1,16 @@
 # dasein
 A social network
 
+## Configuring
+
+This project usese environment variables to work. For most cases, the
+defaults work but some sensitive info like keys must be overridden. Copy
+the file in `config/env.dist` to `.env` in the project root and override
+the values.
+
+When running with `make run`, it'll pick up these values automatically.
+If you're doing it the hard way, you'll have to source them.
+
 ## Running Locally
 
 You'll need [Docker][docker] to run the project.
@@ -27,6 +37,12 @@ You can also do some other operations
 * Build the image with `make build`
 * Push and build the image with `make upload`
 * Clean the environment with `make clean`
+
+## Setting up Twitter for login
+
+1. Create an app on https://apps.twitter.com/
+2. Make sure you check "Allow this application to be used to Sign in with Twitter"
+3. Make sure you specify a callback URL (eg. http://localhost:1927/login-callback)
 
 ## Checking the code
 

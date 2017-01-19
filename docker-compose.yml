@@ -3,4 +3,7 @@ version: '2'
 services:
   dasein:
     build: .
+    env_file: .env
     image: rbdr/dasein
+    ports:
+      - "1927:1927"

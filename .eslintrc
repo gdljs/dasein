@@ -5,6 +5,7 @@
       2,
       2
     ],
-    "no-undef": 2
+    "no-undef": 2,
+    "require-yield": 0
   }
 }
