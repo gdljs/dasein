@@ -6,7 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased] - 2016-12-12
 ### Added
-- Dummy project files
+- JWT stored in cookie
+- Twitter OAuth Integration
 - Simple contributing guidelines
 - Eslint configuration
 - Docker configuration
