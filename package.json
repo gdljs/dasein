@@ -13,14 +13,17 @@
     "dasein": "./bin/dasein.js"
   },
   "scripts": {
+		"document": "jsdoc -c ./config/jsdoc.json lib config",
     "lint": "eslint .",
     "start": "node ./bin/dasein.js",
     "test": "echo \"Error: no test specified... sorry D:\""
   },
   "devDependencies": {
+    "docdash": "^0.4.0",
     "eslint": "^3.12.1",
     "eslint-config-hapi": "^10.0.0",
-    "eslint-plugin-hapi": "^4.0.0"
+    "eslint-plugin-hapi": "^4.0.0",
+    "jsdoc": "^3.4.3"
   },
   "dependencies": {
     "getenv": "^0.7.0",
