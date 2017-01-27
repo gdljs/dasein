@@ -11,9 +11,9 @@ const internals = {};
  *
  * @memberof Dasein
  * @typedef {object} tConfiguration
+ * @property {number} [expiration=180] the time in seconds that posts
+ * remain alive
  * @property {number} [port=1927] the port where the app will listen on
- * @property {string} [hostname=localhost] the domain where the app will
- * be served from, used for url generation
  * @property {string} [staticDirectory=static] the path, relative to the
  * project root, where static assets live
  * @property {Dasein.tJWTConfiguration} jwt the configuration for the
@@ -22,7 +22,7 @@ const internals = {};
  * for twitter integration
  */
 module.exports = internals.Config = {
-  hostname: Getenv('DASEIN_HOSTNAME', 'localhost'),
+  expirationTime: Getenv.int('DASEIN_EXIPRATION_TIME', 180),
   port: Getenv.int('DASEIN_PORT', 1927),
   staticDirectory: Getenv('DASEIN_STATIC_DIRECTORY', 'static'),
 
