@@ -16,6 +16,8 @@ const internals = {};
  * project root, where static assets live
  * @property {number} [ttl=180] the time in seconds that posts
  * remain alive
+ * @property {Dasein.tRedisConfiguration} redis the configuration to
+ * connect to the redis server
  * @property {Dasein.tJWTConfiguration} jwt the configuration for the
  * JWT authentication
  * @property {Dasein.tTwitterConfiguration} twitter the configuration
@@ -39,6 +41,19 @@ module.exports = internals.Config = {
     duration: Getenv.int('DASEIN_JWT_DURATION', 86400),
     secret: Getenv('DASEIN_JWT_SECRET')
   },
+
+  /**
+   * Information required to connect to the redis server
+   *
+   * @memberof Dasein
+   * @typedef {object} tRedisConfiguration
+   * @property {string} host the location of the redis host
+   * @property {string} [post=6379] port where redis server is listening
+   */
+  twitter: {
+    host: Getenv('DASEIN_REDIS_HOST'),
+    port: Getenv.int('DASEIN_REDIS_PORT', 6379)
+  }
 
   /**
    * Configures the twitter integration values
