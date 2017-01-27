@@ -4,18 +4,54 @@ const Getenv = require('getenv');
 
 const internals = {};
 
+/**
+ * The main configuration object for Dasein. It will be used to
+ * initialize all of the sub-components. It can extend any property of
+ * the dasein object.
+ *
+ * @memberof Dasein
+ * @typedef {object} tConfiguration
+ * @property {number} [port=1927] the port where the app will listen on
+ * @property {string} [hostname=localhost] the domain where the app will
+ * be served from, used for url generation
+ * @property {string} [staticDirectory=static] the path, relative to the
+ * project root, where static assets live
+ * @property {Dasein.tJWTConfiguration} jwt the configuration for the
+ * JWT authentication
+ * @property {Dasein.tTwitterConfiguration} twitter the configuration
+ * for twitter integration
+ */
 module.exports = internals.Config = {
-  cookieKeys: Getenv.array('DASEIN_COOKIE_KEYS'), // Signatures for the cookies
-  port: Getenv.int('DASEIN_PORT', 1927), // Port to listen on
-  hostname: Getenv('DASEIN_HOSTNAME', 'localhost'), // Domain to listen on, used for cookies
-  staticDirectory: Getenv('DASEIN_STATIC_DIRECTORY', 'static'), // Location of static assets
+  hostname: Getenv('DASEIN_HOSTNAME', 'localhost'),
+  port: Getenv.int('DASEIN_PORT', 1927),
+  staticDirectory: Getenv('DASEIN_STATIC_DIRECTORY', 'static'),
+
+  /**
+   * Configures the behavior of the JWT token.
+   *
+   * @memberof Dasein
+   * @typedef {object} tJWTConfiguration
+   * @property {number} [duration=86400] the duration of the JWT in
+   * seconds
+   * @property {string} secret the secret used to sign the JWT
+   */
   jwt: {
-    cookieName: Getenv('DASEIN_JWT_COOKIE_NAME', 'dasein_jwt'), // Name of cookie where jwt is stored
-    duration: Getenv('DASEIN_JWT_DURATION', 86400), // Duration of JWT (24 hours)
-    secret: Getenv('DASEIN_JWT_SECRET') // Secret to sign JWT
+    duration: Getenv.int('DASEIN_JWT_DURATION', 86400),
+    secret: Getenv('DASEIN_JWT_SECRET')
   },
+
+  /**
+   * Configures the twitter integration values
+   *
+   * @memberof Dasein
+   * @typedef {object} tTwitterConfiguration
+   * @property {string} consumerKey The consumer key used to authenticate
+   * with the twitter API
+   * @property {string} consumerSecret the consumer secret used to
+   * authenticate with the twitter API
+   */
   twitter: {
-    consumerKey: Getenv('DASEIN_TWITTER_CONSUMER_KEY'), // Consumer key for twitter
-    consumerSecret: Getenv('DASEIN_TWITTER_CONSUMER_SECRET') // Consumer secret for twitter
+    consumerKey: Getenv('DASEIN_TWITTER_CONSUMER_KEY'),
+    consumerSecret: Getenv('DASEIN_TWITTER_CONSUMER_SECRET')
   }
 };
