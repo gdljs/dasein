@@ -50,10 +50,10 @@ module.exports = internals.Config = {
    * @property {string} host the location of the redis host
    * @property {string} [post=6379] port where redis server is listening
    */
-  twitter: {
+  redis: {
     host: Getenv('DASEIN_REDIS_HOST'),
     port: Getenv.int('DASEIN_REDIS_PORT', 6379)
-  }
+  },
 
   /**
    * Configures the twitter integration values
