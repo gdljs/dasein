@@ -27,8 +27,9 @@ way.
 
 ## Generating documentation
 
-This project uses JS Doc to generate documentation. Generate everything
-with `npm run doc`.
+This project uses JSDoc to generate documentation. Generate everything
+with `npm run document`. The documentation will be generated in the
+`doc` directory.
 
 ## Building and pushing the image
 

@@ -1,0 +1,9 @@
+{
+  "plugins": ["plugins/markdown"],
+  "opts": {
+    "destination": "doc",
+    "readme": "README.md",
+    "template": "node_modules/docdash",
+    "recurse": true
+  }
+}
