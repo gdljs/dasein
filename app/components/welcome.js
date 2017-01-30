@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import AuthService from '../services/auth';
 
+/* global window */
+
 const internals = {};
 
 export default internals.WelcomeComponent = Vue.component('welcome', {

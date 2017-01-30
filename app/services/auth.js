@@ -2,6 +2,8 @@ import Axios from 'axios';
 
 const internals = {};
 
+/* global localStorage */
+
 internals.kInitiateLoginRoute = '/api/auth/login';
 internals.kHandleCallbackRoute = '/api/auth/callback';
 

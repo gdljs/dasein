@@ -7,6 +7,8 @@ import LoginComponent from './components/login';
 import WelcomeComponent from './components/welcome';
 import PostsComponent from './components/posts';
 
+/* global window */
+
 const internals = {};
 
 export default internals.Dasein = {
