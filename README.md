@@ -43,7 +43,7 @@ You can also do some other operations
 
 1. Create an app on https://apps.twitter.com/
 2. Make sure you check "Allow this application to be used to Sign in with Twitter"
-3. Make sure you specify a callback URL (eg. http://localhost:1927/api/login-callback)
+3. Make sure you specify a callback URL (eg. http://localhost:1927/login-callback)
 
 ## Checking the code
 
