@@ -44,3 +44,6 @@ jspm_packages
 
 # Documentation
 doc
+
+# Generated assets
+static/assets
