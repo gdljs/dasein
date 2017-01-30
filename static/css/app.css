@@ -68,6 +68,11 @@ section {
   padding: 10px;
 }
 
+.posts-container .post .post-content {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
 .post-form-container .post-content-input {
   display: block;
   margin: 10px;
