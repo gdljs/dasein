@@ -11,4 +11,6 @@ COPY yarn.lock /app/
 RUN yarn install
 COPY . /app
 
+RUN npm run build
+
 ENTRYPOINT [ "node", "bin/dasein" ])
