@@ -39,4 +39,55 @@ section {
   font-size: 96px;
 }
 
+.welcome-container,
+.login-container {
+  font-size: 24px;
+  padding: 50px 10px 10px;
+}
+
 /* The stream */
+
+.posts-container .post .post-meta {
+  background-color: lightgray;
+  display: flex;
+  align-items: center;
+}
+
+.post-meta time, .post-meta a {
+  padding: 0 10px;
+}
+
+.posts-container .post .post-content,
+.post-form-container .post-content-input,
+.post-form-container .post-submit {
+  font-family: -apple-system, BlinkMacSystemFont,
+      "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans",
+      "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 24px;
+  padding: 10px;
+}
+
+.post-form-container .post-content-input {
+  display: block;
+  margin: 10px;
+  width: 90%;
+  resize: none;
+  height: 140px;
+}
+
+.post-form-container .post-submit {
+  margin: 10px auto;
+  display: block;
+  background-color: lightgray;
+}
+
+.post-form-container .post-submit:active {
+  background-color: cyan;
+}
+
+.posts-error,
+.post-form-error {
+  color: red;
+  padding: 10px;
+}
