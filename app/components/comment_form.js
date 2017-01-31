@@ -5,23 +5,27 @@ import AuthService from '../services/auth';
 const internals = {};
 
 internals.kPostsRoute = '/api/posts';
+internals.kCommentsRoute = '/comments';
 
-export default internals.PostFormComponent = Vue.component('post-form', {
-  template: '<div class="post-form-container">' +
-      '<h1>hi {{authService.user.name}}</h1>' +
-      '<button v-show="!active" class="post-submit" v-on:click="activate">Post something.</button>' +
-      '<textarea v-show="active" :disabled="submitting" v-model="content" class="post-content-input" placeholder="tell us something" maxlength=255></textarea>' +
-      '<p v-show="message" class="post-form-error">{{message}}</p>' +
-      '<button v-show="active" :disabled="submitting" class="post-submit" v-on:click="submit">Go.</button>' +
+export default internals.CommentFormComponent = Vue.component('comment-form', {
+  template: '<div class="comment-form-container">' +
+      '<p v-show="!active" class="comment-form-error">' +
+      '<button class="comment-activate" v-on:click="activate">Add comment.</button>' +
+      '</p>' +
+      '<textarea v-show="active" :disabled="submitting" v-model="content" class="comment-content-input" placeholder="tell us something" maxlength=255></textarea>' +
+      '<p v-show="message" class="comment-form-error">{{message}}</p>' +
+      '<button v-show="active" :disabled="submitting" class="comment-submit" v-on:click="submit">Go.</button>' +
       '</div>',
+
+  props: ['postUuid'],
 
   data() {
 
     return {
       content: '',
       message: '',
-      submitting: false,
       active: false,
+      submitting: false,
       authService: new AuthService()
     };
   },
@@ -35,11 +39,12 @@ export default internals.PostFormComponent = Vue.component('post-form', {
       this.active = true;
     },
 
-    // Creates a post
+    // Creates a comment
 
     submit() {
 
       this.submitting = true;
+      const route = `${internals.kPostsRoute}/${this.postUuid}${internals.kCommentsRoute}`;
 
       return Axios({
         method: 'post',
@@ -49,10 +54,10 @@ export default internals.PostFormComponent = Vue.component('post-form', {
         data: {
           content: this.content
         },
-        url: internals.kPostsRoute
+        url: route
       }).then((response) => {
 
-        this.$emit('post-submitted', response.data);
+        this.$emit('comment-submitted', response.data);
         this.content = '';
         this.message = '';
         this.submitting = false;
@@ -66,5 +71,3 @@ export default internals.PostFormComponent = Vue.component('post-form', {
     }
   }
 });
-
-

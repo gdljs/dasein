@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased] - 2016-12-12
 ### Added
+- Add inefficient API response
+- Add inefficient polling
+- Add comments
 - JSDoc config
 - Twitter OAuth Integration
 - Simple contributing guidelines

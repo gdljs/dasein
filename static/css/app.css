@@ -47,16 +47,22 @@ section {
 
 /* The stream */
 
+.comments-container .comment .comment-meta,
 .posts-container .post .post-meta {
   background-color: lightgray;
   display: flex;
   align-items: center;
+  font-size: 20px;
 }
 
+.comment-meta time, .comment-meta a,
 .post-meta time, .post-meta a {
   padding: 0 10px;
 }
 
+.comments-container .comment .comment-content,
+.comment-form-container .comment-content-input,
+.comment-form-container .comment-submit,
 .posts-container .post .post-content,
 .post-form-container .post-content-input,
 .post-form-container .post-submit {
@@ -68,6 +74,13 @@ section {
   padding: 10px;
 }
 
+.comments-container .comment .comment-content,
+.posts-container .post .post-content {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.comment-form-container .comment-content-input,
 .post-form-container .post-content-input {
   display: block;
   margin: 10px;
@@ -76,6 +89,8 @@ section {
   height: 140px;
 }
 
+.comment-form-container .comment-submit,
+.comment-form-container .comment-activate,
 .post-form-container .post-submit {
   margin: 10px auto;
   display: block;
@@ -87,7 +102,40 @@ section {
 }
 
 .posts-error,
+.comments-error,
 .post-form-error {
   color: red;
   padding: 10px;
+}
+
+/* Comments */
+
+.comments-container .comment .comment-meta {
+  background-color: ghostwhite;
+  font-size: 16px;
+}
+
+.comments-container .comment .comment-meta img {
+  width: 24px;
+  height: 24px;
+}
+
+.comments-container .comment .comment-content,
+.comment-form-container .comment-content-input,
+.comment-form-container .comment-submit {
+  font-size: 16px;
+}
+
+.comment-form-container .comment-activate {
+  padding: 2px;
+  font-size: 12px;
+}
+
+.comment-form-container .comment-content-input {
+  height: 70px;
+}
+
+.comment-form-container .comment-activate:active,
+.comment-form-container .comment-submit:active {
+  background-color: magenta;
 }
