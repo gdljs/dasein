@@ -47,7 +47,7 @@ export default internals.CommentsComponent = Vue.component('comments', {
         this.comments = response.data;
       }).catch((err) => {
 
-        console.err(err.stack);
+        console.error(err.stack);
         this.message = 'Error while loading the comments...';
       });
     },
