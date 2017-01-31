@@ -3,6 +3,7 @@ import Vue from 'vue';
 import AuthService from '../services/auth';
 
 import PostFormComponent from './post_form';
+import PostComponent from './post';
 import DatetimeFilter from '../filters/datetime';
 import UsertimeFilter from '../filters/usertime';
 
@@ -15,14 +16,7 @@ export default internals.PostsComponent = Vue.component('posts', {
       '<post-form v-on:post-submitted="addPost"></post-form>' +
       '<h1>Posts.</h1>' +
       '<p v-show="message" class="posts-error">{{message}}</p>' +
-      '<article class="post" v-for="post in posts">' +
-      '<aside class="post-meta">' +
-      '<img :src="post.userImage" v-bind:alt="\'Avatar for @\' + post.userId">' +
-      '<a v-bind:href="\'https://twitter.com/\' + post.userId">{{post.userName}}</a> said on ' +
-      '<time v-bind:datetime="post.timestamp | datetime">{{post.timestamp | usertime}}</time>' +
-      '</aside>' +
-      '<div class="post-content">{{post.content}}</div>' +
-      '</article>' +
+      '<post v-for="post in posts" v-bind:post="post"></post>' +
       '</div>',
 
   data() {
@@ -61,15 +55,12 @@ export default internals.PostsComponent = Vue.component('posts', {
 
   components: {
     postForm: PostFormComponent,
+    post: PostComponent,
     datetime: DatetimeFilter,
     usertime: UsertimeFilter
   },
 
   mounted: function mounted() {
-
-    if (!this.authService.authenticated) {
-      return this.$router.push('/login');
-    }
 
     return this.fetchPosts();
   }
