@@ -13,7 +13,7 @@ internals.kPostsRoute = '/api/posts';
 internals.kPollFrequency = 10000; // 10s
 
 export default internals.PostsComponent = Vue.component('posts', {
-  template: '<div class="posts-container">' +
+  template: '<div v-if="authService.authenticated" class="posts-container">' +
       '<post-form v-on:post-submitted="addPost"></post-form>' +
       '<h1>Posts.</h1>' +
       '<p v-show="message" class="posts-error">{{message}}</p>' +
@@ -61,7 +61,7 @@ export default internals.PostsComponent = Vue.component('posts', {
     usertime: UsertimeFilter
   },
 
-  mounted: function mounted() {
+  mounted() {
 
     if (!this.authService.authenticated) {
       return this.$router.push('/login');
