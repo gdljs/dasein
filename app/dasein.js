@@ -22,13 +22,6 @@ export default internals.Dasein = {
     this.vm = new Vue({
       router: this._setupRouter(),
       el: '#dasein',
-      components: {
-        login: LoginComponent,
-        welcome: WelcomeComponent
-      },
-      data: {
-        message: 'Hello Vue!'
-      },
       methods: {
         authenticated() {
 
