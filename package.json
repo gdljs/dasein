@@ -1,6 +1,6 @@
 {
   "name": "dasein",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A social network",
   "main": "lib/dasein.js",
   "repository": {

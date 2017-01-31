@@ -4,11 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased] - 2016-12-12
+## 1.0.0 - 2016-01-31
 ### Added
-- Add inefficient API response
-- Add inefficient polling
-- Add comments
+- Inefficient API response
+- Inefficient polling
+- Comment Support
 - JSDoc config
 - Twitter OAuth Integration
 - Simple contributing guidelines
@@ -16,9 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Docker configuration
 - CI Integration
 - This CHANGELOG
-
-### Changed
-- README to include more info on how to run
+- Readme
 
 [Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/master...develop
 
