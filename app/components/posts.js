@@ -10,7 +10,7 @@ import UsertimeFilter from '../filters/usertime';
 const internals = {};
 
 internals.kPostsRoute = '/api/posts';
-internals.kPollFrequency = 10000; // 10s
+internals.kPollFrequency = 1000;
 
 export default internals.PostsComponent = Vue.component('posts', {
   template: '<div v-if="authService.authenticated" class="posts-container">' +
