@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  dasein:
+    build: .
+    env_file: .env
+    image: rbdr/dasein
+    environment:
+      - DASEIN_REDIS_HOST=db
+    ports:
+      - "1927:1927"
+    depends_on:
+      - db
+  db:
+    image: redis:3.2.6

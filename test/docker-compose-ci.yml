@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  dasein:
+    build: .
+    image: rbdr/dasein
+    entrypoint:
+      - 'node'
+      - 'node_modules/.bin/eslint'
+      - '.'
+      - '--max-warnings'
+      - '0'

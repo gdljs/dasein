@@ -1,0 +1,14 @@
+sudo: required
+
+services:
+  - docker
+
+before_script:
+  - make build
+
+script:
+  - make test_ci
+
+after_success:
+  - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+  - make upload

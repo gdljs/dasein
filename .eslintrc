@@ -1,0 +1,11 @@
+{
+  "extends": "eslint-config-hapi",
+  "rules": {
+    "indent": [
+      2,
+      2
+    ],
+    "no-undef": 2,
+    "require-yield": 0
+  }
+}
