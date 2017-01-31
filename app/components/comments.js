@@ -11,6 +11,7 @@ const internals = {};
 
 internals.kPostsRoute = '/api/posts';
 internals.kCommentsRoute = '/comments';
+internals.kPollFrequency = 500;
 
 export default internals.CommentsComponent = Vue.component('comments', {
   template: '<div class="comments-container">' +
@@ -66,6 +67,8 @@ export default internals.CommentsComponent = Vue.component('comments', {
 
   mounted: function mounted() {
 
-    return this.fetchComments();
+    this.fetchComments();
+
+    setInterval(this.fetchComments.bind(this), internals.kPollFrequency);
   }
 });
