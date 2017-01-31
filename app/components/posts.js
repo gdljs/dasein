@@ -10,7 +10,7 @@ import UsertimeFilter from '../filters/usertime';
 const internals = {};
 
 internals.kPostsRoute = '/api/posts';
-internals.kPollFrequency = 2000;
+internals.kPollFrequency = 5000;
 
 export default internals.PostsComponent = Vue.component('posts', {
   template: '<div v-if="authService.authenticated" class="posts-container">' +
@@ -24,6 +24,7 @@ export default internals.PostsComponent = Vue.component('posts', {
 
     return {
       message: '',
+      poller: null,
       authService: new AuthService(),
       posts: []
     };
@@ -69,7 +70,11 @@ export default internals.PostsComponent = Vue.component('posts', {
 
     this.fetchPosts();
 
-    setInterval(this.fetchPosts.bind(this), internals.kPollFrequency);
+    this.poller = setInterval(this.fetchPosts.bind(this), internals.kPollFrequency);
+  }
+
+  beforeDestroy() {
+    clearInterval(this.poller);
   }
 });
 
