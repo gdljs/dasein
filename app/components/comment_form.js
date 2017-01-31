@@ -35,6 +35,7 @@ export default internals.CommentFormComponent = Vue.component('comment-form', {
     // Activates the form.
 
     activate() {
+
       this.active = true;
     },
 
