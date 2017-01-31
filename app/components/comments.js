@@ -15,7 +15,7 @@ internals.kCommentsRoute = '/comments';
 export default internals.CommentsComponent = Vue.component('comments', {
   template: '<div class="comments-container">' +
       '<p v-show="message" class="comments-error">{{message}}</p>' +
-      '<comment v-for="comment in comments" v-bind:comment="comment"></comment>' +
+      '<comment v-for="comment in comments" v-bind:comment="comment" :key="comment.uuid"></comment>' +
       '<comment-form v-bind:postUuid="postUuid" v-on:comment-submitted="addComment"></comment-form>' +
       '</div>',
 

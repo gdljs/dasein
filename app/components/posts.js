@@ -16,7 +16,7 @@ export default internals.PostsComponent = Vue.component('posts', {
       '<post-form v-on:post-submitted="addPost"></post-form>' +
       '<h1>Posts.</h1>' +
       '<p v-show="message" class="posts-error">{{message}}</p>' +
-      '<post v-for="post in posts" v-bind:post="post"></post>' +
+      '<post v-for="post in posts" v-bind:post="post" :key="post.uuid"></post>' +
       '</div>',
 
   data() {
