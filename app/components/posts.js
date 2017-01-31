@@ -10,6 +10,7 @@ import UsertimeFilter from '../filters/usertime';
 const internals = {};
 
 internals.kPostsRoute = '/api/posts';
+internals.kPollFrequency = 10000; // 10s
 
 export default internals.PostsComponent = Vue.component('posts', {
   template: '<div class="posts-container">' +
@@ -42,7 +43,7 @@ export default internals.PostsComponent = Vue.component('posts', {
         this.posts = response.data;
       }).catch((err) => {
 
-        console.err(err.stack);
+        console.error(err.stack);
         this.message = 'Error while loading the posts...';
       });
     },
@@ -62,7 +63,13 @@ export default internals.PostsComponent = Vue.component('posts', {
 
   mounted: function mounted() {
 
-    return this.fetchPosts();
+    if (!this.authService.authenticated) {
+      return this.$router.push('/login');
+    }
+
+    this.fetchPosts();
+
+    setInterval(this.fetchPosts.bind(this), internals.kPollFrequency);
   }
 });
 
