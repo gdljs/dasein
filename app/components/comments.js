@@ -46,6 +46,9 @@ export default internals.CommentsComponent = Vue.component('comments', {
       }).then((response) => {
 
         this.comments = response.data;
+        if (!this._isBeingDestroyed) {
+          setTimeout(this.fetchComments.bind(this), internals.kPollFrequency);
+        }
       }).catch((err) => {
 
         console.error(err.stack);
@@ -69,11 +72,5 @@ export default internals.CommentsComponent = Vue.component('comments', {
   mounted() {
 
     this.fetchComments();
-
-    this.poller = setInterval(this.fetchComments.bind(this), internals.kPollFrequency);
-  },
-
-  beforeDestroy() {
-    clearInterval(this.poller);
   }
 });

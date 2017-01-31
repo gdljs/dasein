@@ -24,7 +24,6 @@ export default internals.PostsComponent = Vue.component('posts', {
 
     return {
       message: '',
-      poller: null,
       authService: new AuthService(),
       posts: []
     };
@@ -42,6 +41,9 @@ export default internals.PostsComponent = Vue.component('posts', {
       }).then((response) => {
 
         this.posts = response.data;
+        if (!this._isBeingDestroyed) {
+          setTimeout(this.fetchPosts.bind(this), internals.kPollFrequency);
+        }
       }).catch((err) => {
 
         console.error(err.stack);
@@ -70,11 +72,6 @@ export default internals.PostsComponent = Vue.component('posts', {
 
     this.fetchPosts();
 
-    this.poller = setInterval(this.fetchPosts.bind(this), internals.kPollFrequency);
-  }
-
-  beforeDestroy() {
-    clearInterval(this.poller);
   }
 });
 
